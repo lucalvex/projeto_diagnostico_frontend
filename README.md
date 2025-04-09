@@ -5,8 +5,6 @@ O objetivo do Sistema de Diagnóstico é fornecer uma análise da empresa, permi
 O sistema visa facilitar o processo de coleta de dados e geração de relatórios a fim de apoiar a tomada de decisão estratégica.
 
 ## Tecnologias Utilizadas
-
-Liste as principais tecnologias, bibliotecas ou frameworks usados no projeto, por exemplo:
 - React
 - Next.js
 - Tailwind CSS
