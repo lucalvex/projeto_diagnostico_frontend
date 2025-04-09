@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Projeto Diagnóstico
 
-## Getting Started
+O objetivo do Sistema de Diagnóstico é fornecer uma análise da empresa, permitindo que ela identifique áreas de melhoria e oportunidades de desenvolvimento através dos cursos oferecidos em parceria com o Hub de Inovação Fronteira da UEM. 
 
-First, run the development server:
+O sistema visa facilitar o processo de coleta de dados e geração de relatórios a fim de apoiar a tomada de decisão estratégica.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Liste as principais tecnologias, bibliotecas ou frameworks usados no projeto, por exemplo:
+- React
+- Next.js
+- Tailwind CSS
+- TypeScript
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
+- Análise empresarial detalhada.
+- Questionário desenvolvido por especialistas.
+- Interface responsiva e amigável.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como Executar o Projeto
 
-## Learn More
+### Pré-requisitos
+- Node.js (18.19.1)
+- pnpm (10.3.0)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Passos
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Yoshifg/projeto_diagnostico_frontend.git
+   ```
+   
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd projeto_diagnostico_frontend
+   ```
+   
+3. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
+   
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   pnpm dev
+   ```
