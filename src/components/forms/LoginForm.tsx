@@ -31,7 +31,7 @@ export default function LoginForm() {
         <Form
             config={config}
             isLoading={isLoading}
-            btnText='ENTRAR'
+            btnText='Entrar'
             onChange={onChange}
             onSubmit={onSubmit}
         />

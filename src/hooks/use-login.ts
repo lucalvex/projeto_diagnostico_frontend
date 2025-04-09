@@ -17,7 +17,7 @@ export default function useLogin() {
 
 	const { email, password } = formData;
 
-	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+	const onChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
 		const { name, value } = event.target;
 
 		setFormData({ ...formData, [name]: value });

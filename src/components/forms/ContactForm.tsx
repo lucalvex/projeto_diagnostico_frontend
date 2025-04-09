@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Form } from '@/components/forms';
 
 export default function ContactForm() {
-    // Estados reativos para os campos do formulário
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');

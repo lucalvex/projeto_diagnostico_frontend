@@ -1,60 +1,123 @@
-import { Building, LaptopMinimal, BookOpen } from "lucide-react";
+import { Building, LaptopMinimal, BookOpen } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+    const sections = [
+        {
+            id: 1,
+            icon: <Building className='text-blue-darknut font-semibold' />,
+            title: 'Organizacional',
+            description: 'Avalie a situação empresarial de sua empresa.',
+        },
+        {
+            id: 2,
+            icon: <LaptopMinimal className='text-blue-darknut font-semibold' />,
+            title: 'Marketing',
+            description: 'Avalie a situação empresarial de sua empresa.',
+        },
+        {
+            id: 3,
+            icon: <BookOpen className='text-blue-darknut font-semibold' />,
+            title: 'Financeiro',
+            description: 'Avalie a situação empresarial de sua empresa.',
+        },
+        {
+            id: 4,
+            icon: <Building className='text-blue-darknut font-semibold' />,
+            title: 'Organizacional',
+            description: 'Avalie a situação empresarial de sua empresa.',
+        },
+        {
+            id: 5,
+            icon: <LaptopMinimal className='text-blue-darknut font-semibold' />,
+            title: 'Marketing',
+            description: 'Avalie a situação empresarial de sua empresa.',
+        },
+        {
+            id: 6,
+            icon: <BookOpen className='text-blue-darknut font-semibold' />,
+            title: 'Financeiro',
+            description: 'Avalie a situação empresarial de sua empresa.',
+        },
+    ];
+
     return (
         <>
-            <div className='container max-w-4xl mx-auto min-h-screen space-y-10 p-12'>
-                < div className='conteiner max-w-2xl mx-auto space-y-8 text-center' >
-                    <h1 className='text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-darknut via-purple-500 to-pink-500'>
-                        Transforme o Futuro da Sua Empresa
-                    </h1>
-                    <p className='justify-center'>
-                        Descubra o potencial oculto da sua empresa! Nosso sistema oferece uma análise detalhada
-                        e estratégica para identificar áreas de melhoria e oportunidades de crescimento.
-                        Com o <strong>Módulo de Questionário</strong>, você terá acesso a insights valiosos que irão revolucionar
-                        a forma como você toma decisões.
-                    </p>
-                    <Link
-                        href='/questionnaire'
-                        className='inline-block px-6 py-3 bg-blue-darknut rounded-lg shadow-md hover:bg-vivid-cerulean transition md-4'>
-                        Acessar o Questionário
-                    </Link>
+            <div className='min-h-screen relative mb-24'>
+                <div className='h-[556px] w-full relative flex bg-royal-blue dark:bg-midnight-blue'>
+                    <Image
+                        src='/home/building-1.jpg'
+                        alt='Arranha-céu'
+                        fill={true}
+                        style={{
+                            objectFit: 'cover',
+                            objectPosition: '50% 0%',
+                        }}
+                        className='opacity-30 blur-xs'
+                    />
+                    <div className='absolute inset-0 flex flex-col items-center justify-center text-center max-w-4xl mx-auto'>
+                        <h1 className='text-4xl sm:text-5xl md:text-6xl text-bleached-silk font-bold mb-6'>
+                            Transforme o Futuro da Sua Empresa
+                        </h1>
+                        <p className='justify-center text-sm sm:text-base md:text-xl mb-6 text-bleached-silk p-4 md:p-8'>
+                            Descubra o potencial oculto da sua empresa! Nosso sistema oferece uma análise detalhada
+                            e estratégica para identificar áreas de melhoria e oportunidades de crescimento.
+                            Com o <strong>Módulo de Questionário</strong>, você terá acesso a insights valiosos que irão revolucionar
+                            a forma como você toma decisões.
+                        </p>
+                        <Link
+                            href='/questionnaire'
+                            className='w-fit inline-block px-6 py-3 font-semibold text-zinc-700 dark:text-bleached-silk bg-turquoise dark:bg-blue-darknut rounded-lg shadow-md dark:hover:bg-vivid-cerulean transition md-4'>
+                            Acessar o Questionário
+                        </Link>
+                    </div>
                 </div>
+                <div className='w-full bg-white dark:bg-gunmetal'>
+                    <div className='flex flex-col lg:flex-row items-center justify-center py-24 px-12 lg:px-28 lg:space-x-20'>
+                        <div className='flex flex-col w-full'>
+                            <h1 className='text-4xl sm:text-5xl text-center text-royal-blue dark:text-blue-darknut font-bold'>
+                                Desenvolvido por Especialistas
+                            </h1>
+                            <div className='text-justify py-8'>
+                                <p className='text-gray-700 dark:text-gray-300 '>
+                                    O <strong>Módulo de Questionário</strong> foi cuidadosamente elaborado por professores pesquisadores da
+                                    <strong> Universidade Estadual de Maringá (UEM)</strong>. Com base em estudos acadêmicos e práticas de mercado,
+                                    nosso questionário oferece uma análise precisa e confiável para ajudar sua empresa a alcançar o próximo nível.
+                                </p>
+                                <p className='mt-4 text-gray-700 dark:text-gray-300'>
+                                    A UEM é reconhecida por sua excelência em pesquisa e inovação, garantindo que você tenha acesso a uma ferramenta
+                                    desenvolvida com o mais alto padrão de qualidade.
+                                </p>
+                            </div>
+                        </div>
+                        <div className='relative flex flex-col w-full aspect-[16/9] z-0'>
+                            <Image
+                                src='/home/uem.jpg'
+                                alt='Foto do prédio da reitoria da UEM'
+                                fill={true}
+                                style={{
+                                    objectFit: 'cover',
+                                    objectPosition: '50% 40%',
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className='p-12 flex flex-col justify-center items-center bg-bleached-silk dark:bg-midnight-blue'>
+                    <h1 className='sm:text-5xl text-royal-blue dark:text-blue-darknut font-bold'>O que Avaliamos</h1>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto justify-items-center place-items-center py-12 gap-8'>
+                        {sections.map((section) => (
+                            <div
+                                key={section.id}
+                                className='flex flex-col rounded-md w-52 h-52 sm:w-64 sm:h-64 md:p-4 lg:w-60 lg:h-60 lg:p-6 justify-center items-center border-2 bg-white dark:bg-midnight-blue border-gray-light dark:border-gunmetal hover:border-blue-darknut  dark:hover:border-blue-darknut hover:-translate-y-3 transition transform duration-500'
+                            >
+                                {section.icon}
+                                <p className='text-base md:text-xl font-semibold text-blue-darknut'>{section.title}</p>
 
-                <div className='hidden md:grid md:grid-cols-3 justify-items-center gap-4 lg:gap-8'>
-                    <div className='flex flex-col rounded-md md:w-52 md:h-52 md:p-4 lg:w-60 lg:h-60 lg:p-6 lg:space-y-4 justify-center items-center border-2 border-gunmetal hover:border-blue-darknut hover:-translate-y-3 transition transform duration-500'>
-                        <div className='flex flex-col items-center text-vivid-cerulean'>
-                            <Building className='' />
-                            <p>
-                                Organizacional
-                            </p>
-                        </div>
-                        <p className='text-sm text-center'>
-                            Avalie a situação empresarial de sua empresa.
-                        </p>
-                    </div>
-                    <div className='flex flex-col rounded-md md:w-52 md:h-52 md:p-4 lg:w-60 lg:h-60 lg:p-6 lg:space-y-4 justify-center items-center border-2 border-gunmetal hover:border-blue-darknut hover:-translate-y-3 transition transform duration-500'>
-                        <div className='flex flex-col items-center text-vivid-cerulean'>
-                            <LaptopMinimal className='' />
-                            <p>
-                                Marketing
-                            </p>
-                        </div>
-                        <p className='text-sm text-center'>
-                            Avalie a situação empresarial de sua empresa.
-                        </p>
-                    </div>
-                    <div className='flex flex-col rounded-md md:w-52 md:h-52 md:p-4 lg:w-60 lg:h-60 lg:p-6 lg:space-y-4 justify-center items-center border-2 border-gunmetal hover:border-blue-darknut hover:-translate-y-3 transition transform duration-500'>
-                        <div className='flex flex-col items-center text-vivid-cerulean'>
-                            <BookOpen className='' />
-                            <p>
-                                Financeiro
-                            </p>
-                        </div>
-                        <p className='text-sm text-center'>
-                            Avalie a situação empresarial de sua empresa.
-                        </p>
+                                <p className='text-sm text-center text-gray-400'>{section.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div >

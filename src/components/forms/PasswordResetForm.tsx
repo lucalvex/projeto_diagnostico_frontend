@@ -8,7 +8,7 @@ export default function PasswordResetForm() {
 
     const config = [
         {
-            labelText: 'Email address',
+            labelText: 'Endereço de Email',
             labelId: 'email',
             type: 'email',
             onChange,
@@ -21,7 +21,7 @@ export default function PasswordResetForm() {
         <Form
             config={config}
             isLoading={isLoading}
-            btnText='Request password reset'
+            btnText='Solicitar nova senha'
             onChange={onChange}
             onSubmit={onSubmit}
         />

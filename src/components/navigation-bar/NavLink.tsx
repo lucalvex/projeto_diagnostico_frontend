@@ -24,11 +24,11 @@ export default function NavLink({
 }: Props) {
     const className = cn(
         rest.className,
-        'rounded-md font-medium',
+        'rounded-md font-semibold',
         {
             'hover:text-blue-darknut': isNavItem,
             'text-blue-darknut': isSelected,
-            'text-3xl': isBanner,
+            'text-2xl sm:text-3xl': isBanner,
         }
     );
 

@@ -1,8 +1,8 @@
-
 'use client';
 
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Menu, X } from 'lucide-react';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { useLogoutMutation } from '@/redux/features/authApiSlice';
@@ -12,10 +12,21 @@ import NavLink from './NavLink';
 export default function Navbar() {
     const pathname = usePathname() || '';
     const dispatch = useAppDispatch();
-
     const [logout] = useLogoutMutation();
-
     const { isAuthenticated } = useAppSelector(state => state.auth);
+
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleLogout = () => {
         logout(undefined)
@@ -54,20 +65,29 @@ export default function Navbar() {
         </>
     );
 
-    const authLinks = (isMobile: boolean) => (
+    const authLinks = (isMobile: boolean, close?: () => void) => (
         <>
-            <NavLink isMobile={isMobile} onClick={handleLogout}>
+            <NavLink
+                isMobile={isMobile}
+                onClick={() => {
+                    handleLogout();
+                    if (close) close();
+                }}
+            >
                 Sair
             </NavLink>
         </>
     );
 
-    const guestLinks = (isMobile: boolean) => (
+    const guestLinks = (isMobile: boolean, close?: () => void) => (
         <>
             <NavLink
                 isMobile={isMobile}
                 href='/authentication/login'
-                className='bg-blue-darknut py-2 px-4 hover:bg-vivid-cerulean rounded-md'
+                className='bg-turquoise text-zinc-700 dark:bg-blue-darknut dark:text-bleached-silk py-2 px-4 hover:bg-vivid-cerulean rounded-md'
+                onClick={() => {
+                    if (close) close();
+                }}
             >
                 Entrar
             </NavLink>
@@ -75,10 +95,14 @@ export default function Navbar() {
     );
 
     return (
-        <Disclosure as='nav' className='bg-dark-navy-blue sticky top-0 left-0 right-0 z-50'>
+        <Disclosure
+            as='nav'
+            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-royal-blue/90 dark:bg-midnight-blue/90 border-b border-white dark:border-blue-darknut py-2' : 'bg-royal-blue dark:bg-midnight-blue py-4'
+                } text-zinc-100`}
+        >
             {({ open, close }) => (
                 <>
-                    <div className='relative flex w-full py-2 sm:py-4 items-center border-b border-blue-darknut'>
+                    <div className='relative flex w-full items-center'>
                         <div className='flex sticky left-1 md:hidden'>
                             <DisclosureButton className='p-2 rounded-md hover:bg-gray-700 hover:text-white'>
                                 {open ? <X size={24} /> : <Menu size={24} />}
@@ -89,12 +113,14 @@ export default function Navbar() {
                                 <NavLink
                                     href='/'
                                     isBanner
-                                    onClick={() => { close() }}
+                                    onClick={() => {
+                                        close();
+                                    }}
                                 >
                                     Projeto Diagnóstico
                                 </NavLink>
                             </div>
-                            <div className='hidden  md:block md:space-x-5 lg:space-x-12'>
+                            <div className='hidden md:block md:space-x-5 lg:space-x-12'>
                                 {navLinks(false)}
                             </div>
                             <div className='hidden md:block'>
@@ -103,14 +129,13 @@ export default function Navbar() {
                         </div>
                     </div>
                     <DisclosurePanel transition className='origin-top transition duration-300 ease-out data-[closed]:-translate-y-4'>
-                        <div className=' flex flex-col items-center space-y-4 py-4 border-b border-blue-darknut md:hidden'>
+                        <div className='flex flex-col items-center space-y-4 py-4 border-b dark:border-blue-darknut md:hidden'>
                             {navLinks(true, close)}
-                            {isAuthenticated ? authLinks(true) : guestLinks(true)}
+                            {isAuthenticated ? authLinks(true, close) : guestLinks(true, close)}
                         </div>
                     </DisclosurePanel>
                 </>
-            )
-            }
-        </Disclosure >
+            )}
+        </Disclosure>
     );
 }

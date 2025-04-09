@@ -8,18 +8,18 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <div className='flex flex-col w-full space-y-8 md:space-y-12 pb-12'>
-            <div className='relative flex flex-col w-full h-64 sm:h-72 md:h-96 lg:h-[560px] z-0'>
+            <div className="relative flex flex-col w-full h-64 sm:h-72 md:h-96 lg:h-[560px] z-0">
                 <Image
-                    src='/about-us/hub-foto.jpg'
-                    alt='Hub de Inovação'
+                    src="/about-us/hub-foto.jpg"
+                    alt="Hub de Inovação"
                     fill={true}
                     style={{
-                        objectFit: 'cover',
-                        objectPosition: '50% 40%',
+                        objectFit: "cover",
+                        objectPosition: "50% 40%",
                     }}
                 />
             </div>
-            <div className='flex flex-col items-center w-full space-y-8 p-8'>
+            <div className='flex flex-col items-center w-full space-y-8 p-4 md:p-8'>
                 <h1 className='text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-darknut via-purple-500 to-pink-500'>
                     Quem Somos
                 </h1>
@@ -27,7 +27,7 @@ export default function About() {
                     O Hub de Inovação Fronteira promove o desenvolvimento tecnológico conectando academia e empresas. Atuamos com startups, deep techs e soluções inovadoras em parceria com a Universidade Estadual de Maringá (UEM) e outros ambientes de inovação.
                 </p>
             </div>
-            <div className='flex flex-col md:flex-row w-full items-center p-8 mdspace-x-8'>
+            <div className='flex flex-col md:flex-row w-full items-center p-4 md:p-8 md:space-x-8'>
                 <div className='relative flex flex-col w-full aspect-[16/9] p-8 z-0'>
                     <Image
                         src='/about-us/prof-farid-falando.jpg'
@@ -39,7 +39,7 @@ export default function About() {
                         }}
                     />
                 </div>
-                <div className='flex flex-col p-8 w-full'>
+                <div className='flex flex-col py-4 md:p-8 w-full'>
                     <span className='text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-darknut via-purple-500 to-pink-500'>
                         Nossa Missão
                     </span>
@@ -48,7 +48,7 @@ export default function About() {
                     </p>
                 </div>
             </div>
-            <div className='flex flex-col md:flex-row w-full items-center p-8 md:space-x-8'>
+            <div className='flex flex-col md:flex-row w-full items-center p-4 md:p-8 md:space-x-8'>
                 <div className='md:hidden relative flex flex-col w-full aspect-[16/9] p-8 z-0'>
                     <Image
                         src='/about-us/palestra-hub.jpeg'
@@ -60,7 +60,7 @@ export default function About() {
                         }}
                     />
                 </div>
-                <div className='flex flex-col p-8 w-full'>
+                <div className='flex flex-col py-4 md:p-8 w-full'>
                     <h1 className='text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-darknut via-purple-500 to-pink-500'>
                         Nossa História
                     </h1>
