@@ -1,0 +1,1 @@
+export { default as LikertScale } from './Likert';
