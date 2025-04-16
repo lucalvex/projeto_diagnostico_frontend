@@ -45,9 +45,9 @@ export default function Home() {
     return (
         <>
             <div className='min-h-screen relative mb-24'>
-                <div className='h-[556px] w-full relative flex bg-royal-blue dark:bg-midnight-blue'>
+                <div className='h-[556px] w-full relative flex bg-midnight-blue'>
                     <Image
-                        src='/home/building-1.jpg'
+                        src='/home/building.jpg'
                         alt='Arranha-céu'
                         fill={true}
                         style={{

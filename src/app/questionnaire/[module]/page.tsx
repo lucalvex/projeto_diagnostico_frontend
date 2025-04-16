@@ -35,7 +35,7 @@ export default function Questionnaire() {
                             </a>
                             <div className='hidden md:block w-[1px] h-12 bg-zinc-500'></div>
                             <Link
-                                href='/questionnaire/x/1'
+                                href='/questionnaire/x/Diagnóstico Organizacional'
                                 className='hidden md:block w-fit md:px-4 md:py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600'>
                                 Iniciar Questionário
                             </Link>
@@ -43,7 +43,7 @@ export default function Questionnaire() {
 
 
                         <Link
-                            href='/questionnaire/x/1'
+                            href='/questionnaire/x/Diagnóstico Organizacional'
                             className='md:hidden mx-auto w-fit px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600'>
                             Iniciar Questionário
                         </Link>

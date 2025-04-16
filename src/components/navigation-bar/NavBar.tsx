@@ -97,7 +97,7 @@ export default function Navbar() {
     return (
         <Disclosure
             as='nav'
-            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-royal-blue/90 dark:bg-midnight-blue/90 border-b border-white dark:border-blue-darknut py-2' : 'bg-royal-blue dark:bg-midnight-blue py-4'
+            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-midnight-blue/90 border-b border-white dark:border-blue-darknut py-2' : 'bg-midnight-blue py-4'
                 } text-zinc-100`}
         >
             {({ open, close }) => (

@@ -1,25 +1,55 @@
 import { apiSlice } from "../services/apiSlice";
 
 interface Question {
-    id_na_secao: number; // Correspondente a 'id_na_secao' no backend
-    pergunta: string; // Correspondente a 'pergunta' no backend
-    explicacao: string; // Correspondente a 'explicacao' no backend
+    id: number;
+    pergunta: string;
+    explicacao: string;
 }
 
-interface Secao {
-    secao_titulo: string; // Correspondente a 'secao_titulo' no backend
-    descricao: string; // Correspondente a 'descricao' no backend
-    tipo: string; // Correspondente a 'tipo' no backend
-    perguntas: Question[]; // Correspondente a 'perguntas' no backend
+interface Dimensao {
+    id: number;
+    dimensaoTitulo: string;
+    descricao: string;
+    tipo: "OBRIGATORIO" | "COMERCIO" | "SERVICO" | "INDUSTRIA";
+    perguntas: Question[];
+}
+
+interface Modulo {
+    id: number;
+    nome: string;
+    descricao: string;
+    perguntasQntd: number;
+    tempo: number;
+    dimensoes: Dimensao[];
+}
+
+interface RespostaModulo {
+    usuarioId: number;
+    moduloId: number;
+    valorFinal: number;
+    dataResposta: string;
 }
 
 export const questionnaireApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getQuestionnaires: builder.query<Secao[], void>({
+        getQuestionnaires: builder.query<Dimensao[], void>({
             query: () => '/questionario/',
-            transformResponse: (response: { secoes: Secao[] }) => response.secoes, // Mapeia 'secoes' diretamente
+        }),
+        getQuestionnaireByModule: builder.query<Modulo, string>({
+            query: (nomeModulo: string) => `/questionario/modulos/${nomeModulo}/`,
+        }),
+        saveModuleResponses: builder.mutation<void, { nomeModulo: string; respostas: RespostaModulo[] }>({
+            query: ({ nomeModulo, respostas }) => ({
+                url: `/modulos/${nomeModulo}/respostas/`,
+                method: 'POST',
+                body: respostas,
+            }),
         }),
     }),
 });
 
-export const { useGetQuestionnairesQuery } = questionnaireApiSlice;
+export const {
+    useGetQuestionnairesQuery,
+    useGetQuestionnaireByModuleQuery,
+    useSaveModuleResponsesMutation,
+} = questionnaireApiSlice;
