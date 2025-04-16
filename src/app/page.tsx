@@ -68,7 +68,7 @@ export default function Home() {
                         </p>
                         <Link
                             href='/questionnaire'
-                            className='w-fit inline-block px-6 py-3 font-semibold text-zinc-700 dark:text-bleached-silk bg-turquoise dark:bg-blue-darknut rounded-lg shadow-md dark:hover:bg-vivid-cerulean transition md-4'>
+                            className='w-fit inline-block px-6 py-3 font-semibold text-bleached-silk bg-blue-darknut rounded-lg shadow-md hover:bg-vivid-cerulean transition md-4'>
                             Acessar o Questionário
                         </Link>
                     </div>
@@ -76,7 +76,7 @@ export default function Home() {
                 <div className='w-full bg-white dark:bg-gunmetal'>
                     <div className='flex flex-col lg:flex-row items-center justify-center py-24 px-12 lg:px-28 lg:space-x-20'>
                         <div className='flex flex-col w-full'>
-                            <h1 className='text-4xl sm:text-5xl text-center text-royal-blue dark:text-blue-darknut font-bold'>
+                            <h1 className='mb-12 text-4xl sm:text-5xl text-center text-royal-blue dark:text-blue-darknut font-bold'>
                                 Desenvolvido por Especialistas
                             </h1>
                             <div className='text-justify py-8'>
@@ -105,7 +105,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className='p-12 flex flex-col justify-center items-center bg-bleached-silk dark:bg-midnight-blue'>
-                    <h1 className='sm:text-5xl text-royal-blue dark:text-blue-darknut font-bold'>O que Avaliamos</h1>
+                    <h1 className='mb-12 sm:text-5xl text-royal-blue dark:text-blue-darknut font-bold'>O que Avaliamos</h1>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto justify-items-center place-items-center py-12 gap-8'>
                         {sections.map((section) => (
                             <div

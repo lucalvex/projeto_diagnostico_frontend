@@ -84,7 +84,7 @@ export default function Navbar() {
             <NavLink
                 isMobile={isMobile}
                 href='/authentication/login'
-                className='bg-turquoise text-zinc-700 dark:bg-blue-darknut dark:text-bleached-silk py-2 px-4 hover:bg-vivid-cerulean rounded-md'
+                className='bg-blue-darknut text-bleached-silk py-2 px-4 hover:bg-vivid-cerulean rounded-md'
                 onClick={() => {
                     if (close) close();
                 }}

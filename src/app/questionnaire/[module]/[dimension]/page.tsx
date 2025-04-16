@@ -84,13 +84,13 @@ export default function Page({ params }: Props) {
                         <NavigationButton onClick={goToPrevious} position='left' size='sm' />
                     )}
                 </div>
-                <h2 className='text-2xl sm:text-3xl md:text-5xl font-extrabold text-blue-darknut text-center'>
+                <h2 className='text-2xl sm:text-3xl md:text-5xl font-extrabold text-royal-blue dark:text-blue-darknut text-center'>
                     {currentDimension.title}
                 </h2>
             </div>
             <p className='mb-16 text-sm md:text-xl text-justify'>{currentDimension.description}</p>
             <button
-                className='px-6 py-3 bg-blue-darknut rounded-md'
+                className='px-6 py-3 bg-blue-darknut rounded-md text-bleached-silk'
                 onClick={goToNext}
             >
                 Iniciar
@@ -154,8 +154,8 @@ export default function Page({ params }: Props) {
     };
 
     return (
-        <div className='min-h-screen p-4 pt-32 sm:p-8 sm:pt-36 md:p-12 md:pt-40'>
-            <div className='flex flex-col p-4 max-w-4xl mx-auto bg-dark-navy-blue rounded-md border border-blue-darknut'>
+        <div className='min-h-screen p-4 pt-32 sm:p-8 sm:pt-36 md:p-12 md:pt-40 bg-bleached-silk dark:bg-dark-navy-blue'>
+            <div className='flex flex-col p-4 max-w-4xl mx-auto bg-off-white dark:bg-gunmetal rounded-md border border-royal-blue dark:border-blue-darknut'>
                 {showDescription ? <DescriptionView /> : <QuestionView />}
             </div>
         </div>

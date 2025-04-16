@@ -26,11 +26,11 @@ export default function Questionnaire() {
                         </div>
 
                         <div className='flex w-max h-max space-x-2 mx-auto items-center md:px-4 md:py-2 bg-gunmetal rounded-md border border-vivid-cerulean'                       >
-                            <a>
+                            <a className='text-bleached-silk'>
                                 Número de Questões
                             </a>
                             <div className='w-[1px] h-12 bg-zinc-500'></div>
-                            <a>
+                            <a className='text-bleached-silk'>
                                 Tempo Estimado
                             </a>
                             <div className='hidden md:block w-[1px] h-12 bg-zinc-500'></div>
