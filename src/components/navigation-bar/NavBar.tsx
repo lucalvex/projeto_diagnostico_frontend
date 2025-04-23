@@ -129,7 +129,7 @@ export default function Navbar() {
                         </div>
                     </div>
                     <DisclosurePanel transition className='origin-top transition duration-300 ease-out data-[closed]:-translate-y-4'>
-                        <div className='flex flex-col items-center space-y-4 py-4 border-b dark:border-blue-darknut md:hidden'>
+                        <div className='flex flex-col items-center space-y-4 py-4 md:hidden'>
                             {navLinks(true, close)}
                             {isAuthenticated ? authLinks(true, close) : guestLinks(true, close)}
                         </div>

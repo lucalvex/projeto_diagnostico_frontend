@@ -17,11 +17,12 @@ export default function Questionnaire() {
                                 Módulo
                             </span>
                             <h1 className='text-4xl md:text-6xl text-blue-darknut font-bold mb-4'>
-                                Conhecimentos Gerais
+                                Diagnóstico Organizacional
                             </h1>
                             <p className='text-zinc-300 mb-6'>
-                                Este questionário foi desenvolvido para avaliar seus conhecimentos em diversas áreas, como ciência, história e cultura geral.
-                                Reserve um tempo tranquilo para respondê-lo e aproveite para aprender algo novo!
+                                O Diagnóstico Organizacional é uma ferramenta essencial para entender a saúde da sua empresa.
+                                Ele ajuda a identificar pontos fortes e áreas que precisam de melhorias, permitindo que você
+                                tome decisões informadas para o futuro do seu negócio.
                             </p>
                         </div>
 

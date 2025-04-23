@@ -1,26 +1,24 @@
 'use client';
 
-import { use, useState } from 'react';
+import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useSubmitResponses } from '@/hooks';
 import { useGetQuestionnaireByModuleQuery } from '@/redux/features/questionnaireApiSlice';
-import { LikertScale } from '@/components/questionnaire';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { QuestionWithLikert } from '@/components/questionnaire';
+import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface Props {
-    params: Promise<{
-        dimension: string;
-    }>;
-}
+export default function Page() {
+    const { dimension: moduleName } = useParams();
 
-export default function Page({ params }: Props) {
-    const { dimension: moduleName } = use(params);
-
-    const { data: moduleData, isLoading, isError } = useGetQuestionnaireByModuleQuery(moduleName, {
+    const { data: moduleData, isLoading, isError } = useGetQuestionnaireByModuleQuery(moduleName as string, {
         skip: !moduleName,
     });
 
     const [currentDimensionIndex, setCurrentDimensionIndex] = useState(0);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [showDescription, setShowDescription] = useState(true);
+    const [showSubmit, setShowSubmit] = useState(false);
+    const { responses, handleResponseChange, handleSubmitResponses } = useSubmitResponses();
 
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error loading module data.</div>;
@@ -30,6 +28,7 @@ export default function Page({ params }: Props) {
         title: dimension.dimensaoTitulo,
         description: dimension.descricao,
         questions: dimension.perguntas.map((question) => ({
+            id: question.id,
             text: question.pergunta,
             explanation: question.explicacao,
         })),
@@ -54,6 +53,8 @@ export default function Page({ params }: Props) {
             setCurrentDimensionIndex((prev) => prev + 1);
             setCurrentQuestionIndex(0);
             setShowDescription(true);
+        } else if (currentDimensionIndex === totalDimensions - 1) {
+            setShowSubmit(true);
         }
     };
 
@@ -68,13 +69,14 @@ export default function Page({ params }: Props) {
             if (previousDimension.questions.length > 0) {
                 setCurrentQuestionIndex(previousDimension.questions.length - 1);
                 setShowDescription(false);
-            }
-            else {
+            } else {
                 setCurrentQuestionIndex(0);
                 setShowDescription(true);
             }
         }
     };
+
+    const currentResponse = responses[currentQuestion.id];
 
     const DescriptionView = () => (
         <div className='flex flex-col items-center px-3 py-10 sm:px-6 md:px-10'>
@@ -104,10 +106,11 @@ export default function Page({ params }: Props) {
                 Questão {currentQuestionIndex + 1} de {totalQuestionsInDimension}
             </div>
             <div className='py-16 px-3 sm:px-8 md:px-12 max-w-4xl mx-auto'>
-                <LikertScale
-                    key={currentQuestionIndex}
+                <QuestionWithLikert
                     question={currentQuestion.text}
                     numOptions={5}
+                    selectedOption={currentResponse}
+                    setSelectedOption={(option) => handleResponseChange(currentQuestion.id, option)}
                 />
             </div>
             <div className='flex justify-end space-x-3'>
@@ -119,10 +122,24 @@ export default function Page({ params }: Props) {
                 <NavigationButton
                     onClick={goToNext}
                     position='right'
-                    disabled={isLastQuestion}
                 />
             </div>
-        </div >
+        </div>
+    );
+
+    const SubmitView = () => (
+        <div className='flex flex-col items-center px-3 py-10 sm:px-6 md:px-10'>
+            <div className='rounded-full border-2 border-turquoise p-4 mb-8'>
+                <Check className='text-turquoise h-16 w-16' />
+            </div>
+            <h1 className='text-2xl sm:text-3xl md:text-5xl font-extrabold mb-16'> Questionário Finalizado! </h1>
+            <button
+                className='px-6 py-3 bg-turquoise rounded-md text-black-wash'
+                onClick={() => handleSubmitResponses(moduleName as string)}
+            >
+                Enviar Respostas
+            </button>
+        </div>
     );
 
     const NavigationButton = ({
@@ -156,7 +173,7 @@ export default function Page({ params }: Props) {
     return (
         <div className='min-h-screen p-4 pt-32 sm:p-8 sm:pt-36 md:p-12 md:pt-40 bg-bleached-silk dark:bg-dark-navy-blue'>
             <div className='flex flex-col p-4 max-w-4xl mx-auto bg-off-white dark:bg-gunmetal rounded-md border border-royal-blue dark:border-blue-darknut'>
-                {showDescription ? <DescriptionView /> : <QuestionView />}
+                {showSubmit ? <SubmitView /> : (showDescription ? <DescriptionView /> : <QuestionView />)}
             </div>
         </div>
     );

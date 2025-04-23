@@ -1,4 +1,4 @@
-import { apiSlice } from "../services/apiSlice";
+import { apiSlice } from '../services/apiSlice';
 
 interface Question {
     id: number;
@@ -10,7 +10,7 @@ interface Dimensao {
     id: number;
     dimensaoTitulo: string;
     descricao: string;
-    tipo: "OBRIGATORIO" | "COMERCIO" | "SERVICO" | "INDUSTRIA";
+    tipo: 'OBRIGATORIO' | 'COMERCIO' | 'SERVICO' | 'INDUSTRIA';
     perguntas: Question[];
 }
 
@@ -24,10 +24,8 @@ interface Modulo {
 }
 
 interface RespostaModulo {
-    usuarioId: number;
-    moduloId: number;
-    valorFinal: number;
-    dataResposta: string;
+    perguntaId: number;
+    valor: number;
 }
 
 export const questionnaireApiSlice = apiSlice.injectEndpoints({
@@ -42,7 +40,7 @@ export const questionnaireApiSlice = apiSlice.injectEndpoints({
             query: ({ nomeModulo, respostas }) => ({
                 url: `/modulos/${nomeModulo}/respostas/`,
                 method: 'POST',
-                body: respostas,
+                body: { respostas },
             }),
         }),
     }),

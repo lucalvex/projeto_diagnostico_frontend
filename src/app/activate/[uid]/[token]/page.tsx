@@ -1,20 +1,15 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useActivationMutation } from '@/redux/features/authApiSlice';
 import { toast } from 'react-toastify';
 import { TypeAnimation } from 'react-type-animation';
 
-interface Props {
-    params: {
-        uid: string;
-        token: string;
-    };
-}
-
-export default function Page({ params }: Props) {
+export default function Page() {
     const router = useRouter();
+    const params = useParams();
+
     const [activation] = useActivationMutation();
 
     useEffect(() => {
@@ -50,7 +45,7 @@ export default function Page({ params }: Props) {
                                 '',
                                 250,
                             ]}
-                            wrapper="span"
+                            wrapper='span'
                             speed={50}
                             omitDeletionAnimation={true}
                             repeat={Infinity}

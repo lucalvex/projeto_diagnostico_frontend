@@ -50,7 +50,7 @@ export default function QuestionnairePage() {
                     </div>
                 </div>
                 <div className='p-12 pb-32'>
-                    <p className='text-center text-2xl max-w-4xl mb-12'>
+                    <p className='text-center text-2xl max-w-4xl mx-auto mb-12'>
                         Escolha um dos módulos abaixo para começar o diagnóstico. Cada módulo foi desenvolvido para abordar
                         aspectos específicos da sua empresa e fornecer insights valiosos.
                     </p>
