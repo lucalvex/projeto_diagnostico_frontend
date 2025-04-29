@@ -13,7 +13,7 @@ interface Props {
     };
 }
 
-export default function Page({ params }: Props) {
+export default async function Page({ params }: Props) {
     const {uid, token } = params;
     return (
         <main className='min-h-screen p-12'>
