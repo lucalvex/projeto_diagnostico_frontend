@@ -12,8 +12,8 @@ interface Params {
 }
 
 // Este tipo é usado para garantir que o Next.js 13+ aceite os parâmetros corretamente
-export default function Page({ params }: { params: Params }) {
-    const { uid, token } = params;
+export default async function Page({ params }: { params: Promise<{uid: string, token: string}> }) {
+    const { uid, token } = await params;
 
     return (
         <main className="min-h-screen p-12">
