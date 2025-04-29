@@ -6,15 +6,13 @@ export const metadata: Metadata = {
     description: 'Redefina sua senha',
 };
 
-interface Props {
-    params: {
-        uid: string;
-        token: string;
-    };
+interface Params {
+    uid: string;
+    token: string;
 }
 
-// Função de página assíncrona no Next.js 13+ (App Directory)
-export default async function Page({ params }: { params: { uid: string; token: string } }) {
+// Este tipo é usado para garantir que o Next.js 13+ aceite os parâmetros corretamente
+export default function Page({ params }: { params: Params }) {
     const { uid, token } = params;
 
     return (
