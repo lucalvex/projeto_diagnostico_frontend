@@ -13,7 +13,8 @@ interface Props {
     };
 }
 
-export default function Page({ params: { uid, token } }: Props) {
+export default function Page({ params }: Props) {
+    const {uid, token } = params;
     return (
         <main className='min-h-screen p-12'>
             <div className='flex flex-col max-w-md mx-auto bg-gunmetal rounded-md border-2 border-blue-darknut'>
