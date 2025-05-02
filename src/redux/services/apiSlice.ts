@@ -12,7 +12,11 @@ const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api`,
     credentials: 'include',
-});
+    prepareHeaders: (headers) => {
+      headers.set('Content-Type', 'application/json');
+      return headers;
+    },
+  });
 
 const baseQueryWithReauth: BaseQueryFn<
     string | FetchArgs,
