@@ -34,6 +34,9 @@ const authApiSlice = apiSlice.injectEndpoints({
                 url: '/users/',
                 method: 'POST',
                 body: { email, username, cnpj, password, re_password },
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             }),
         }),
         verify: builder.mutation({
