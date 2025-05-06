@@ -20,12 +20,16 @@ export default function useRegister() {
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-
-        setFormData({ ...formData, [name]: value });
+        const updated = { ...formData, [name]: value };
+        console.log('Campo atualizado:', name, '→', value);
+        console.log('FormData atual:', updated);
+        setFormData(updated);
     };
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        console.log('Dados enviados:', { email, username, cnpj, cpf, password, re_password });
 
         register({ email, username, cnpj, cpf,  password, re_password })
             .unwrap()
