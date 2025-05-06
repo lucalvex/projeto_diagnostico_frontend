@@ -11,11 +11,12 @@ export default function useRegister() {
         email: '',
         username: '',
         cnpj: '',
+        cpf: '',
         password: '',
         re_password: '',
     });
 
-    const { email, username, cnpj, password, re_password } = formData;
+    const { email, username, cnpj, cpf, password, re_password } = formData;
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -26,7 +27,7 @@ export default function useRegister() {
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        register({ email, username, cnpj, password, re_password })
+        register({ email, username, cnpj, cpf,  password, re_password })
             .unwrap()
             .then(() => {
                 toast.success('Por favor verifique seu email para ativar sua conta');
@@ -42,6 +43,7 @@ export default function useRegister() {
         email,
         username,
         cnpj,
+        cpf,
         password,
         re_password,
         isLoading,

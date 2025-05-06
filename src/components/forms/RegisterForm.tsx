@@ -8,6 +8,7 @@ export default function RegisterForm() {
 		email,
 		username,
 		cnpj,
+		cpf,
 		password,
 		re_password,
 		isLoading,
@@ -35,6 +36,13 @@ export default function RegisterForm() {
 			labelId: 'cnpj',
 			type: 'text',
 			value: cnpj,
+			required: true,
+		},
+		{
+			labelText: 'CPF',
+			labelId: 'cpf',
+			type: 'text',
+			value: cpf,
 			required: true,
 		},
 		{
