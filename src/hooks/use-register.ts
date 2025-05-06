@@ -19,9 +19,9 @@ export default function useRegister() {
     const { email, username, cnpj, cpf, password, re_password } = formData;
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
+        const { id, value } = event.target;
 
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [id]: value });
     };
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -35,7 +35,7 @@ export default function useRegister() {
             })
             .catch((error) => {
                 console.error('Registration error:', error);
-                toast.error('Failha ao registrar conta');
+                toast.error('Falha ao registrar conta');
             });
     };
 
